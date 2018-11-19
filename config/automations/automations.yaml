@@ -1,3 +1,11 @@
+### Home Assistant Start
+- alias: 'Home Assistant Start'
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - service: shell_command.homeassistant_start
+
 ### Wallmote Quad
 - alias: 'Wallmote Quad - 1'
   trigger:
