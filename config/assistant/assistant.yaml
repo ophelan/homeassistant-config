@@ -1,0 +1,52 @@
+light.daniels_bedroom:
+  expose: true
+  room: Daniel's Bedroom
+  aliases:
+    - Daniel's Lights
+    - Daniel's Bedroom
+    - Daniel's Room
+    - Bedroom Lights
+    - Bedroom
+light.daltons_bedroom:
+  expose: true
+  room: Dalton's Bedroom
+  aliases:
+    - Dalton's Lights
+    - Dalton's Bedroom
+    - Dalton's Room
+light.daniels_bathroom:
+  expose: true
+  room: Daniel's Bathroom
+  aliases:
+    - Master Bath Lights
+    - Master Bath
+light.main_bathroom:
+  expose: true
+  room: Main Bathroom
+  aliases:
+    - Hall Bathroom Lights
+    - Hall Bathroom
+    - Main Bathroom Lights
+    - Main Bathroom
+light.hallway:
+  expose: true
+  room: Hallway
+  aliases:
+    - Hallway Lights
+    - Hall Lights
+    - Hall
+    - Corridor Lights
+    - Corridor
+light.living_room:
+  expose: true
+  room: Living Room
+  aliases:
+    - Living Room Lights
+light.kitchen:
+  expose: true
+  room: Kitchen
+  aliases:
+    - Kitchen Lights
+script.goodnight_daniel:
+  expose: true
+  room: Daniel's Bedroom

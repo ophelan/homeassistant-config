@@ -1,0 +1,8 @@
+light.living_room:
+  icon: mdi:television
+media_player.living_room:
+  friendly_name: Living Room - Chromecast
+# media_player.living_room_2:
+media_player.living_room_3:
+  friendly_name: Living Room - Sonos
+  hidden: true

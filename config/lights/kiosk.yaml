@@ -1,0 +1,7 @@
+- platform: template
+  lights:
+    kiosk_screen_pixelc:
+      friendly_name: Pixel C Kiosk
+      turn_on:
+      turn_off:
+      set_level:

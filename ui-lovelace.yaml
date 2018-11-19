@@ -1,0 +1,336 @@
+resources:
+  - url: /local/lovelace-fullykiosk.js
+    type: js
+  - url: /local/kiosk-config.js
+    type: js
+  - url: /local/kioskmode.js
+    type: js
+  - url: /local/layout-card.js
+    type: js
+  - url: /local/card-modder.js
+    type: js
+  - url: /local/popup-card.js
+    type: js
+  - url: /local/useful-markdown-card.js
+    type: js
+  - url: /local/weatherbg-card.js
+    type: module
+  - url: /local/windybg-card.js
+    type: module
+  - url: /local/surveillance-card.js?v=0
+    type: module
+  - url: /local/custom_ui/dark-sky-weather-card.js
+    type: js
+  - url: /local/canvas-gauge-card.js
+    type: module
+views:
+  - id: main
+    title: Main
+    icon: mdi:home
+    panel: true
+    cards:
+      - type: custom:layout-card
+        layout: vertical
+        column_num: 3
+        cards:
+        - id: clock
+          type: custom:useful-markdown-card
+          content: >
+            <font size=200>
+            [[ sensor.time.state ]]
+            </font>
+            [[ sensor.date.state ]]
+        - id: people
+          type: glance
+          entities:
+            - device_tracker.google_maps_109297660594363205523
+        - type: horizontal-stack
+          cards:
+          - type: custom:canvas-gauge-card
+            entity: sensor.us_air_quality_index
+            gauge:
+              type: "radial-gauge"
+              title: U.S. Air Quality Index
+              # width: 205
+              width: 140
+              height: 220
+              minValue: 0
+              maxValue: 500
+              startAngle: 45
+              ticksAngle: 270
+              valueBox: false
+              exactTicks: true
+              majorTicks: ["0", "50", "100", "150", "200", "300", "500"]
+              minorTicks: 50
+              strokeTicks: true
+              highlights: [
+                {"from": 0, "to": 50,"color": "rgba(0, 200, 0, .75)"},
+                {"from": 50, "to": 100,"color": "rgba(200, 200, 0, .75)"},
+                {"from": 100, "to": 150,"color": "rgba(200, 100, 0, .75)"},
+                {"from": 151, "to": 200,"color": "rgba(200, 0, 0, .75)"},
+                {"from": 200, "to": 300,"color": "rgba(200, 0, 200, .75)"},
+                {"from": 300, "to": 500,"color": "rgba(120, 40, 20, .75)"}
+              ]
+              borders: false
+              colorPlate: rgba(0, 0, 0, .25)
+              colorMajorTicks: rgba(255, 255, 255, .5)
+              colorMinorTicks: rgba(255, 255, 255, .5)
+              colorTitle: rgba(255, 255, 255, .5)
+              colorNumbers: rgba(255, 255, 255, .5)
+          - type: custom:canvas-gauge-card
+            entity: sensor.current_uv_index
+            gauge:
+              type: "radial-gauge"
+              title: UV Index
+              width: 140
+              height: 220
+              minValue: 0
+              maxValue: 13
+              startAngle: 45
+              ticksAngle: 270
+              valueBox: false
+              exactTicks: true
+              majorTicks: ["0", "3", "6", "8", "11", "13"]
+              minorTicks: 1
+              strokeTicks: true
+              highlights: [
+                {"from": 0, "to": 3,"color": "rgba(0, 200, 0, .75)"},
+                {"from": 3, "to": 6,"color": "rgba(200, 200, 0, .75)"},
+                {"from": 6, "to": 8,"color": "rgba(200, 100, 0, .75)"},
+                {"from": 8, "to": 11,"color": "rgba(200, 0, 0, .75)"},
+                {"from": 11, "to": 13,"color": "rgba(200, 0, 200, .75)"},
+              ]
+              borders: false
+              colorPlate: rgba(0, 0, 0, .25)
+              colorMajorTicks: rgba(255, 255, 255, .5)
+              colorMinorTicks: rgba(255, 255, 255, .5)
+              colorTitle: rgba(255, 255, 255, .5)
+              colorNumbers: rgba(255, 255, 255, .5)
+          - type: custom:canvas-gauge-card
+            entity: sensor.allergy_index_today
+            gauge:
+              type: "radial-gauge"
+              title: Allergy Index
+              width: 140
+              height: 220
+              minValue: 0
+              maxValue: 12
+              startAngle: 45
+              ticksAngle: 270
+              valueBox: false
+              exactTicks: true
+              majorTicks: ["0", "2.4", "4.8", "7.2", "9.6", "12"]
+              minorTicks: 1.2
+              strokeTicks: true
+              highlights: [
+                {"from": 0, "to": 2.4,"color": "rgba(0, 200, 0, .75)"},
+                {"from": 2.4, "to": 4.8,"color": "rgba(200, 200, 0, .75)"},
+                {"from": 4.8, "to": 7.2,"color": "rgba(200, 100, 0, .75)"},
+                {"from": 7.2, "to": 9.6,"color": "rgba(200, 0, 0, .75)"},
+                {"from": 9.6, "to": 12,"color": "rgba(200, 0, 200, .75)"},
+              ]
+              borders: false
+              colorPlate: rgba(0, 0, 0, .25)
+              colorMajorTicks: rgba(255, 255, 255, .5)
+              colorMinorTicks: rgba(255, 255, 255, .5)
+              colorTitle: rgba(255, 255, 255, .5)
+              colorNumbers: rgba(255, 255, 255, .5)
+        - break
+        - id: lights
+          type: glance
+          title: Lights
+          show_state: false
+          entities:
+            - entity: light.living_room
+              tap_action: toggle
+              hold_action: more-info
+            - entity: light.kitchen
+              tap_action: toggle
+              hold_action: more-info
+            - entity: light.hallway
+              tap_action: toggle
+              hold_action: more-info
+            - entity: light.main_bathroom
+              tap_action: toggle
+              hold_action: more-info
+            - entity: light.daltons_bedroom
+              tap_action: toggle
+              hold_action: more-info
+            - entity: light.daniels_bedroom
+              tap_action: toggle
+              hold_action: more-info
+            - entity: light.daniels_bathroom
+              tap_action: toggle
+              hold_action: more-info
+        - break
+        - type: custom:dark-sky-weather-card
+          entity_sun: sun.sun
+          entity_daily_summary: sensor.dark_sky_daily_summary
+          entity_current_conditions: sensor.dark_sky_icon  
+          entity_humidity: sensor.dark_sky_humidity
+          entity_pressure: sensor.dark_sky_pressure
+          entity_temperature: sensor.dark_sky_temperature
+          entity_visibility: sensor.dark_sky_visibility
+          entity_wind_bearing: sensor.dark_sky_wind_bearing
+          entity_wind_speed: sensor.dark_sky_wind_speed
+          entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1
+          entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2
+          entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3
+          entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4
+          entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5
+          entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature
+          entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1
+          entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2
+          entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3
+          entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4
+          entity_forecast_icon_1: sensor.dark_sky_icon_1
+          entity_forecast_icon_2: sensor.dark_sky_icon_2
+          entity_forecast_icon_3: sensor.dark_sky_icon_3
+          entity_forecast_icon_4: sensor.dark_sky_icon_4
+          entity_forecast_icon_5: sensor.dark_sky_icon_5
+        - type: iframe
+          url: /local/windy-animations/windy_small.html
+          aspect_ratio: 85%
+        - type: custom:weatherbg-card
+          url: /local/weather-animations/night.html
+          weather: weather.dark_sky
+  - id: map
+    title: Map
+    # icon: mdi:map
+    icon: mdi:weather-cloudy
+    cards:
+      - type: custom:dark-sky-weather-card
+        entity_sun: sun.sun
+        entity_daily_summary: sensor.dark_sky_daily_summary
+        entity_current_conditions: sensor.dark_sky_icon  
+        entity_humidity: sensor.dark_sky_humidity
+        entity_pressure: sensor.dark_sky_pressure
+        entity_temperature: sensor.dark_sky_temperature
+        entity_visibility: sensor.dark_sky_visibility
+        entity_wind_bearing: sensor.dark_sky_wind_bearing
+        entity_wind_speed: sensor.dark_sky_wind_speed
+        entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1
+        entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2
+        entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3
+        entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4
+        entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5
+        entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature
+        entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1
+        entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2
+        entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3
+        entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4
+        entity_forecast_icon_1: sensor.dark_sky_icon_1
+        entity_forecast_icon_2: sensor.dark_sky_icon_2
+        entity_forecast_icon_3: sensor.dark_sky_icon_3
+        entity_forecast_icon_4: sensor.dark_sky_icon_4
+        entity_forecast_icon_5: sensor.dark_sky_icon_5
+      # - type: custom:card-modder
+      #   style:
+      #     --paper-card-background-color: rgba(0, 0, 0, .25)
+      #   card:
+      #   - type: custom:dark-sky-weather-card
+      #     entity_sun: sun.sun
+      #     entity_daily_summary: sensor.dark_sky_daily_summary
+      #     entity_current_conditions: sensor.dark_sky_icon  
+      #     entity_humidity: sensor.dark_sky_humidity
+      #     entity_pressure: sensor.dark_sky_pressure
+      #     entity_temperature: sensor.dark_sky_temperature
+      #     entity_visibility: sensor.dark_sky_visibility
+      #     entity_wind_bearing: sensor.dark_sky_wind_bearing
+      #     entity_wind_speed: sensor.dark_sky_wind_speed
+      #     entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1
+      #     entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2
+      #     entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3
+      #     entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4
+      #     entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5
+      #     entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature
+      #     entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1
+      #     entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2
+      #     entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3
+      #     entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4
+      #     entity_forecast_icon_1: sensor.dark_sky_icon_1
+      #     entity_forecast_icon_2: sensor.dark_sky_icon_2
+      #     entity_forecast_icon_3: sensor.dark_sky_icon_3
+      #     entity_forecast_icon_4: sensor.dark_sky_icon_4
+      #     entity_forecast_icon_5: sensor.dark_sky_icon_5
+      - type: custom:windybg-card
+        url: /local/windy-animations/windy.html
+        weather: weather.dark_sky
+  - id: living_room
+    title: Living Room
+    # icon: mdi:television
+  - id: kitchen
+    title: Kitchen
+    # icon: mdi:silverware-fork-knife
+  - id: daniel
+    title: Daniel
+    # icon: mdi:bed-empty
+  - id: dalton
+    title: Dalton
+    # icon: mdi:bed-empty
+  - id: kiosk_status
+    title: Kiosk Status
+    icon: mdi:tablet-android
+    cards:
+      - id: livingRoom
+        type: picture-glance
+        title: Living Room
+        camera_image: camera.kiosk_pixelc
+        entities:
+          - light.kiosk_screen_livingRoom
+      - id: kitchen
+        type: picture-glance
+        title: Kitchen
+        camera_image: camera.kiosk_pixelc
+        entities:
+          - light.kiosk_screen_kitchen
+      - id: hallway
+        type: picture-glance
+        title: Hallway
+        camera_image: camera.kiosk_pixelc
+        entities:
+          - light.kiosk_screen_hallway
+      - id: main_bathroom
+        type: picture-glance
+        title: Main Bathroom
+        image: /local/toilet.jpg
+        entities:
+          - light.kiosk_screen_mainBathroom
+      - id: daniels_bathroom
+        type: picture-glance
+        title: Daniel's Bathroom
+        image: /local/toilet.jpg
+        entities:
+          - light.kiosk_screen_danielsBedroom
+      - id: daltons_bedroom
+        type: picture-glance
+        title: Dalton's Room
+        image: /local/toilet.jpg
+        entities:
+          - light.kiosk_screen_daltonsBedoom
+      - id: daniels_bedroom
+        type: picture-glance
+        title: Daniel's Room
+        image: /local/toilet.jpg
+        entities:
+          - light.kiosk_screen_danielsBedroom
+      - id: pixelc
+        type: picture-glance
+        title: Pixel C
+        camera_image: camera.kiosk_pixelc
+        entities:
+          - light.kiosk_screen_pixelc
+  - id: surveillance
+    title: Surveillance
+    icon: mdi:cctv
+    panel: true
+    cards:
+      - type: custom:surveillance-card
+        thumb_interval: 10
+        update_interval: 0.5
+        cameras:
+          - entity: camera.kiosk_pixelc
+            motion_entity: binary_sensor.kiosk_motion_pixelc
+  - id: system_status
+    title: System Status
+    icon: mdi:home-assistant

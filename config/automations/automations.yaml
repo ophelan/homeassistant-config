@@ -1,0 +1,48 @@
+### Wallmote Quad
+- alias: 'Wallmote Quad - 1'
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.aeotec_zw130_wallmote_quad
+      scene_id: 1
+      scene_data: 0
+  action:
+    - service: light.toggle
+      entity_id: light.daniels_bedroom
+
+- alias: 'Wallmote Quad - 2'
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.aeotec_zw130_wallmote_quad
+      scene_id: 2
+      scene_data: 0
+  action:
+    - service: light.toggle
+      entity_id: light.daniels_bathroom
+
+- alias: 'Wallmote Quad - 3'
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.aeotec_zw130_wallmote_quad
+      scene_id: 3
+      scene_data: 0
+  action:
+    - service: light.toggle
+      entity_id: light.hallway
+
+- alias: 'Wallmote Quad - 4'
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.aeotec_zw130_wallmote_quad
+      scene_id: 4
+      scene_data: 0
+  action:
+    - service: light.toggle
+      entity_id: light.living_room

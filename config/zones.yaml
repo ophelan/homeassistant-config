@@ -1,0 +1,17 @@
+- name: Home
+  latitude: 37.7758258
+  longitude: -122.4097863
+  radius: 50
+  icon: mdi:home-modern
+
+- name: Work
+  latitude: 37.798111
+  longitude: -122.401351
+  radius: 50
+  icon: mdi:office
+
+- name: Zero
+  latitude: 37.7935021
+  longitude: -122.3993162
+  radius: 50
+  icon: mdi:office

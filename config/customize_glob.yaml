@@ -1,0 +1,18 @@
+"sensor.dark_sky_*_1":
+  hidden: true
+"sensor.dark_sky_*_2":
+  hidden: true
+"sensor.dark_sky_*_3":
+  hidden: true
+"sensor.dark_sky_*_4":
+  hidden: true
+"sensor.dark_sky_*_5":
+  hidden: true
+"light.kiosk_screen_*":
+  icon: mdi:tablet-android
+"light.*bedroom":
+  icon: mdi:bed-empty
+"light.*bathroom":
+  icon: mdi:shower-head
+"light.hue_*":
+  hidden: true

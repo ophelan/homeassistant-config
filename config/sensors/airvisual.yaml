@@ -1,0 +1,35 @@
+- platform: airvisual
+  api_key: !secret airvisual_apikey
+  monitored_conditions:
+    - us
+  show_on_map: false
+
+# public double calculateCloudsFactor(double rawUV, String weather, double cloudsCover)
+# {
+#   if (weather.equals(RAIN) || weather.equals(SLEET) || weather.equals(SNOW))
+#     return rawUV * 0.31;
+#   else if (cloudsCover < 0.2)
+#     return rawUV;
+#   else if (cloudsCover >= 0.2 && cloudsCover < 0.7)
+#     return rawUV * 0.89;
+#   else if (cloudsCover >= 0.7 && cloudsCover < 0.9)
+#     return rawUV * 0.73;
+#   else if (cloudsCover >= 0.9)
+#     return rawUV * 0.31;
+#   else return rawUV;
+# }
+
+# - platform: template
+#   sensors:
+#     current_uv_index_corrected:
+#       friendly_name: 'Current UV Index (Corrected)'
+#       value_template: >-
+#         {% if sensor.dark_sky_cloud_coverage < 20 %}
+#           sensor.current_uv_index
+#         {$ elif sensor.dark_sky_cloud_coverage < 70 %}
+#           {{ states('sensor.current_uv_index')|float * 0.89 }}
+#         {$ elif sensor.dark_sky_cloud_coverage < 90 %}
+#           {{ states('sensor.current_uv_index')|float * 0.73 }}
+#         {% else %}
+#           {{ states('sensor.current_uv_index')|float * 0.31 }}
+#         {% endif %}

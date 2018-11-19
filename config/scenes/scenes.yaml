@@ -1,0 +1,130 @@
+- name: Goodnight Daniel
+  entities:
+    light.daniels_bedroom: false
+    light.daniels_bathroom: false
+    light.hallway: false
+    light.kiosk_screen_pixelc: false
+
+- name: whiteAlert
+  entities:
+    light.living_room:
+      state: true
+      rgb_color: [255, 255, 255]
+      brightness_pct: 100
+    light.kitchen:
+      state: true
+      rgb_color: [255, 255, 255]
+      brightness_pct: 100
+    light.hallway:
+      state: true
+      rgb_color: [255, 255, 255]
+      brightness_pct: 100
+    light.main_bathroom:
+      state: true
+      rgb_color: [255, 255, 255]
+      brightness_pct: 100
+    light.daniels_bathroom:
+      state: true
+      rgb_color: [255, 255, 255]
+      brightness_pct: 100
+    light.daniels_bedroom:
+      state: true
+      rgb_color: [255, 255, 255]
+      brightness_pct: 100
+    light.daltons_bedroom:
+      state: true
+      rgb_color: [255, 255, 255]
+      brightness_pct: 100
+
+- name: redAlert
+  entities:
+    light.living_room:
+      state: true
+      rgb_color: [255, 0, 0]
+      brightness_pct: 100
+    light.kitchen:
+      state: true
+      rgb_color: [255, 0, 0]
+      brightness_pct: 100
+    light.hallway:
+      state: true
+      rgb_color: [255, 0, 0]
+      brightness_pct: 100
+    light.main_bathroom:
+      state: true
+      rgb_color: [255, 0, 0]
+      brightness_pct: 100
+    light.daniels_bathroom:
+      state: true
+      rgb_color: [255, 0, 0]
+      brightness_pct: 100
+    light.daniels_bedroom:
+      state: true
+      rgb_color: [255, 0, 0]
+      brightness_pct: 100
+    light.daltons_bedroom:
+      state: true
+      rgb_color: [255, 0, 0]
+      brightness_pct: 100
+
+- name: greenAlert
+  entities:
+    light.living_room:
+      state: true
+      rgb_color: [0, 255, 0]
+      brightness_pct: 100
+    light.kitchen:
+      state: true
+      rgb_color: [0, 255, 0]
+      brightness_pct: 100
+    light.hallway:
+      state: true
+      rgb_color: [0, 255, 0]
+      brightness_pct: 100
+    light.main_bathroom:
+      state: true
+      rgb_color: [0, 255, 0]
+      brightness_pct: 100
+    light.daniels_bathroom:
+      state: true
+      rgb_color: [0, 255, 0]
+      brightness_pct: 100
+    light.daniels_bedroom:
+      state: true
+      rgb_color: [0, 255, 0]
+      brightness_pct: 100
+    light.daltons_bedroom:
+      state: true
+      rgb_color: [0, 255, 0]
+      brightness_pct: 100
+
+- name: blueAlert
+  entities:
+    light.living_room:
+      state: true
+      rgb_color: [0, 0, 255]
+      brightness_pct: 100
+    light.kitchen:
+      state: true
+      rgb_color: [0, 0, 255]
+      brightness_pct: 100
+    light.hallway:
+      state: true
+      rgb_color: [0, 0, 255]
+      brightness_pct: 100
+    light.main_bathroom:
+      state: true
+      rgb_color: [0, 0, 255]
+      brightness_pct: 100
+    light.daniels_bathroom:
+      state: true
+      rgb_color: [0, 0, 255]
+      brightness_pct: 100
+    light.daniels_bedroom:
+      state: true
+      rgb_color: [0, 0, 255]
+      brightness_pct: 100
+    light.daltons_bedroom:
+      state: true
+      rgb_color: [0, 0, 255]
+      brightness_pct: 100

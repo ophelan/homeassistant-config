@@ -1,0 +1,4 @@
+- platform: group
+  name: Main Bathroom
+  entities:
+    - light.hue_bathroomMain

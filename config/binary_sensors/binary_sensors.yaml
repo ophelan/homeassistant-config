@@ -1,0 +1,3 @@
+- platform: mqtt
+  name: kiosk_motion_pixelc
+  state_topic: any/value

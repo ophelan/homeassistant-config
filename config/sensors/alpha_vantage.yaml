@@ -1,0 +1,5 @@
+- platform: alpha_vantage
+  api_key: !secret alpha_vantage_apikey
+  symbols:
+    - symbol: ^GSPC
+      name: S&P 500

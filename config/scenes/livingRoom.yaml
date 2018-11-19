@@ -1,0 +1,16 @@
+- name: livingRoom_television
+  entities:
+    light.living_room:
+      state: true
+      rgb_color: [112, 147, 255]
+      brightness: 130
+    light.kitchen:
+      state: true
+      rgb_color: [112, 147, 255]
+      brightness: 130
+    light.hallway:
+      state: true
+      rgb_color: [112, 147, 255]
+      brightness: 130
+    media_player.livingroom_receiver:
+      state: true

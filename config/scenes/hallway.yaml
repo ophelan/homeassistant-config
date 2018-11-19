@@ -1,0 +1,5 @@
+- name: hallway_default
+  entities:
+    light.hallway:
+      state: true
+      brightness_pct: 75

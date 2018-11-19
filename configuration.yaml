@@ -1,0 +1,180 @@
+homeassistant:
+  name: Home
+  latitude: 37.7758258
+  longitude: -122.4097863
+  elevation: 6
+  unit_system: imperial
+  time_zone: America/Los_Angeles
+  auth_providers:
+    - type: homeassistant
+    - type: legacy_api_password
+  auth_mfa_modules:
+    - type: totp
+  customize: !include_dir_merge_named config/customize/
+  customize_glob: !include config/customize_glob.yaml
+
+automation: !include_dir_merge_list config/automations/
+
+binary_sensor: !include_dir_merge_list config/binary_sensors/
+
+
+camera: !include config/cameras.yaml
+
+# cloud:
+
+coinbase:
+  api_key: !secret coinbase_apikey
+  api_secret: !secret coinbase_apisecret
+  exchange_rate_currencies:
+    - BTC
+
+config:
+
+conversation:
+
+device_tracker:
+  - platform: unifi
+    username: !secret unifi_username
+    password: !secret unifi_password
+    host: tycho.ophelan.com
+    port: 8443
+    verify_ssl: False
+    track_new_devices: no
+
+  - platform: google_maps
+    username: !secret google_maps_username
+    password: !secret google_maps_password
+    max_gps_accuracy: 200
+    track_new_devices: yes
+
+discovery:
+
+frontend:
+  themes: !include_dir_named config/themes/
+
+google_assistant:
+  project_id: !secret google_assistant_project
+  api_key: !secret google_assistant_apikey
+  expose_by_default: false
+  entity_config: !include_dir_merge_named config/assistant/
+
+# group: !include config/groups.yaml
+
+history:
+
+http:
+  ssl_certificate: /root/.acme.sh/iot.ophelan.com/fullchain.cer
+  ssl_key: /root/.acme.sh/iot.ophelan.com/iot.ophelan.com.key
+  base_url: iot.ophelan.com:8123
+  api_password: !secret legacy_api_password
+
+hue:
+  bridges:
+    - host: 192.168.1.9
+      allow_unreachable: true
+      allow_hue_groups: true
+
+light: !include_dir_merge_list config/lights/
+
+logbook:
+
+logger:
+  default: info
+  logs:
+    homeassistant.components.discovery: warn
+
+map:
+
+media_player:
+  - platform: denonavr
+    host: 192.168.1.103
+    name: livingroom_receiver
+  - platform: samsungtv
+    host: 192.168.1.219
+    name: livingroom_tv
+
+mqtt:
+  broker: 127.0.0.1
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+openuv:
+  api_key: !secret openuv_apikey
+
+panel_iframe:
+  nodered:
+    title: Node-Red
+    icon: mdi:shuffle-variant
+    url: http://127.0.0.1:1880/
+
+recorder:
+  purge_keep_days: 30
+  purge_interval: 1
+  db_url: !secret db_url
+  exclude:
+    entities: !include config/recorder_exclude_entities.yaml
+
+scene: !include_dir_merge_list config/scenes/
+
+script: !include_dir_merge_named config/scripts/
+
+sensor: !include_dir_merge_list config/sensors/
+
+sun:
+
+switch:
+  - name: flux_living_room
+    platform: flux
+    disable_brightness_adjust: true
+    lights:
+      - light.living_room
+  - name: flux_kitchen
+    platform: flux
+    disable_brightness_adjust: true
+    lights:
+      - light.kitchen
+  - name: flux_hallway
+    platform: flux
+    disable_brightness_adjust: true
+    lights:
+      - light.hallway
+  - name: flux_main_bathroom
+    platform: flux
+    disable_brightness_adjust: true
+    lights:
+      - light.main_bathroom
+  - name: flux_daniels_bathroom
+    platform: flux
+    disable_brightness_adjust: true
+    lights:
+      - light.daniels_bathroom
+  - name: flux_daniels_bedroom
+    platform: flux
+    disable_brightness_adjust: true
+    lights:
+      - light.daniels_bedroom
+  - name: flux_daltons_bedroom
+    platform: flux
+    disable_brightness_adjust: true
+    lights:
+      - light.daltons_bedroom
+
+tts:
+  - platform: google
+
+updater:
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky_apikey
+
+# zha:
+#   usb_path: /dev/ttyUSB1
+#   database_path: /home/homeassistant/.homeassistant/zigbee.db
+
+zone: !include config/zones.yaml
+
+zwave:
+  usb_path: /dev/ttyUSB0
+  network_key: !secret zwave_network_key
+  device_config: !include config/zwave_device_config.yaml

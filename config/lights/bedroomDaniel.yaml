@@ -1,0 +1,5 @@
+- platform: group
+  name: Daniel's Bedroom
+  entities:
+    - light.hue_bedroomDaniel
+    - light.ge_unknown_type5044_id3031_level

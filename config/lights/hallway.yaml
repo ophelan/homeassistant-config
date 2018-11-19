@@ -1,0 +1,4 @@
+- platform: group
+  name: Hallway
+  entities:
+    - light.hue_hallway

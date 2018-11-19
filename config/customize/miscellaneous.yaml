@@ -1,0 +1,77 @@
+# Z-Wave Controller
+zwave.sigma_designs_uzb_zwave_usb_adapter:
+  friendly_name: Z-Wave Controller
+
+# Aeotec Wallmote Quad
+zwave.aeotec_zw130_wallmote_quad:
+  friendly_name: Wallmote Quad
+switch.aeotec_zw130_wallmote_quad_switch:
+  hidden: true
+sensor.aeotec_zw130_wallmote_quad_sourcenodeid:
+  hidden: true
+sensor.aeotec_zw130_wallmote_quad_alarm_level:
+  hidden: true
+sensor.aeotec_zw130_wallmote_quad_alarm_type:
+  hidden: true
+sensor.aeotec_zw130_wallmote_quad_power_management:
+  hidden: true
+automation.wallmote_quad__1:
+  hidden: true
+automation.wallmote_quad__2:
+  hidden: true
+automation.wallmote_quad__3:
+  hidden: true
+automation.wallmote_quad__4:
+  hidden: true
+
+# Aeotec Multisensor 6
+zwave.aeotec_zw100_multisensor_6:
+  friendly_name: Multisensor 6
+sensor.aeotec_zw100_multisensor_6_burglar:
+  friendly_name: Motion Sensor
+sensor.aeotec_zw100_multisensor_6_temperature:
+  friendly_name: Inside Temperature
+sensor.aeotec_zw100_multisensor_6_relative_humidity:
+  friendly_name: Inside Humidity
+sensor.aeotec_zw100_multisensor_6_luminance:
+  friendly_name: Inside Luminance
+sensor.aeotec_zw100_multisensor_6_ultraviolet:
+  friendly_name: Inside Ultraviolet
+sensor.aeotec_zw100_multisensor_6_alarm_level:
+  hidden: true
+sensor.aeotec_zw100_multisensor_6_alarm_type:
+  hidden: true
+sensor.aeotec_zw100_multisensor_6_sourcenodeid:
+  hidden: true
+binary_sensor.aeotec_zw100_multisensor_6_sensor:
+  hidden: true
+
+# Virtual Sensors
+sun.sun:
+  hidden: true
+sensor.date:
+  hidden: true
+sensor.time:
+  hidden: true
+sensor.dark_sky_ozone:
+  hidden: true
+sensor.btc_exchange_rate:
+  friendly_name: Bitcoin
+sensor.coinbase_btc_wallet:
+  hidden: true
+sensor.allergy_index_yesterday:
+  hidden: true
+sensor.current_ozone_level:
+  hidden: true
+sensor.skin_type_1_safe_exposure_time:
+  hidden: true
+sensor.skin_type_2_safe_exposure_time:
+  friendly_name: Safe Exposure Time
+sensor.skin_type_3_safe_exposure_time:
+  hidden: true
+sensor.skin_type_4_safe_exposure_time:
+  hidden: true
+sensor.skin_type_5_safe_exposure_time:
+  hidden: true
+sensor.skin_type_6_safe_exposure_time:
+  hidden: true

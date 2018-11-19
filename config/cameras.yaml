@@ -1,0 +1,3 @@
+- name: kiosk_pixelc
+  platform: generic
+  still_image_url: !secret kiosk_pixelc_url
