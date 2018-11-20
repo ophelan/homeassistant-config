@@ -2,7 +2,7 @@ light.hallway:
   icon: mdi:door
 zwave.aeotec_zw120_door_window_sensor_gen5:
   friendly_name: Front Door
-sensor.aeotec_zw120_door_window_sensor_gen5_access_control:
+binary_sensor.aeotec_zw120_door_window_sensor_gen5_sensor:
   friendly_name: Front Door
 sensor.aeotec_zw120_door_window_sensor_gen5_burglar:
   friendly_name: Front Door (Tamper)
@@ -12,5 +12,5 @@ sensor.aeotec_zw120_door_window_sensor_gen5_alarm_level:
   hidden: true
 sensor.aeotec_zw120_door_window_sensor_gen5_alarm_type:
   hidden: true
-binary_sensor.aeotec_zw120_door_window_sensor_gen5_sensor:
+sensor.aeotec_zw120_door_window_sensor_gen5_access_control:
   hidden: true
