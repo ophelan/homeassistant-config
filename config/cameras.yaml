@@ -1,3 +1,6 @@
 - name: kiosk_pixelc
   platform: generic
   still_image_url: !secret kiosk_pixelc_url
+- name: kiosk_livingRoom
+  platform: generic
+  still_image_url: !secret kiosk_livingroom_url

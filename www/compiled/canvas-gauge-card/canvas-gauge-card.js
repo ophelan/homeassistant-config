@@ -22,7 +22,10 @@
  * SOFTWARE.
  */
 
-import "./gauge.min.js";
+// import "./gauge.min.js";
+import {
+  RadialGauge
+} from './gauge.min.js';
 
 /**
  * `canvas-gauge-card`

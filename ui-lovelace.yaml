@@ -13,15 +13,19 @@ resources:
     type: js
   - url: /local/useful-markdown-card.js
     type: js
-  - url: /local/weatherbg-card.js
-    type: module
-  - url: /local/windybg-card.js
-    type: module
-  - url: /local/surveillance-card.js?v=0
-    type: module
   - url: /local/custom_ui/dark-sky-weather-card.js
     type: js
-  - url: /local/canvas-gauge-card.js
+### compiled modules, because kiosks don't like them otherwise
+  - url: /local/compiled/button-card/dist/main.js
+    type: js
+  - url: /local/compiled/canvas-gauge-card/dist/main.js
+    type: js
+  - url: /local/compiled/weatherbg-card/dist/main.js
+    type: js
+  - url: /local/compiled/windybg-card/dist/main.js
+    type: js
+###
+  - url: /local/surveillance-card.js?v=0
     type: module
 views:
   - id: main
@@ -199,63 +203,199 @@ views:
     # icon: mdi:map
     icon: mdi:weather-cloudy
     cards:
-      - type: custom:dark-sky-weather-card
-        entity_sun: sun.sun
-        entity_daily_summary: sensor.dark_sky_daily_summary
-        entity_current_conditions: sensor.dark_sky_icon  
-        entity_humidity: sensor.dark_sky_humidity
-        entity_pressure: sensor.dark_sky_pressure
-        entity_temperature: sensor.dark_sky_temperature
-        entity_visibility: sensor.dark_sky_visibility
-        entity_wind_bearing: sensor.dark_sky_wind_bearing
-        entity_wind_speed: sensor.dark_sky_wind_speed
-        entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1
-        entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2
-        entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3
-        entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4
-        entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5
-        entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature
-        entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1
-        entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2
-        entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3
-        entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4
-        entity_forecast_icon_1: sensor.dark_sky_icon_1
-        entity_forecast_icon_2: sensor.dark_sky_icon_2
-        entity_forecast_icon_3: sensor.dark_sky_icon_3
-        entity_forecast_icon_4: sensor.dark_sky_icon_4
-        entity_forecast_icon_5: sensor.dark_sky_icon_5
-      # - type: custom:card-modder
-      #   style:
-      #     --paper-card-background-color: rgba(0, 0, 0, .25)
-      #   card:
-      #   - type: custom:dark-sky-weather-card
-      #     entity_sun: sun.sun
-      #     entity_daily_summary: sensor.dark_sky_daily_summary
-      #     entity_current_conditions: sensor.dark_sky_icon  
-      #     entity_humidity: sensor.dark_sky_humidity
-      #     entity_pressure: sensor.dark_sky_pressure
-      #     entity_temperature: sensor.dark_sky_temperature
-      #     entity_visibility: sensor.dark_sky_visibility
-      #     entity_wind_bearing: sensor.dark_sky_wind_bearing
-      #     entity_wind_speed: sensor.dark_sky_wind_speed
-      #     entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1
-      #     entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2
-      #     entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3
-      #     entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4
-      #     entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5
-      #     entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature
-      #     entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1
-      #     entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2
-      #     entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3
-      #     entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4
-      #     entity_forecast_icon_1: sensor.dark_sky_icon_1
-      #     entity_forecast_icon_2: sensor.dark_sky_icon_2
-      #     entity_forecast_icon_3: sensor.dark_sky_icon_3
-      #     entity_forecast_icon_4: sensor.dark_sky_icon_4
-      #     entity_forecast_icon_5: sensor.dark_sky_icon_5
-      - type: custom:windybg-card
-        url: /local/windy-animations/windy.html
-        weather: weather.dark_sky
+      - type: custom:layout-card
+        layout: vertical
+        column_num: 2
+        cards:
+          - type: custom:dark-sky-weather-card
+            entity_sun: sun.sun
+            entity_daily_summary: sensor.dark_sky_daily_summary
+            entity_current_conditions: sensor.dark_sky_icon  
+            entity_humidity: sensor.dark_sky_humidity
+            entity_pressure: sensor.dark_sky_pressure
+            entity_temperature: sensor.dark_sky_temperature
+            entity_visibility: sensor.dark_sky_visibility
+            entity_wind_bearing: sensor.dark_sky_wind_bearing
+            entity_wind_speed: sensor.dark_sky_wind_speed
+            entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1
+            entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2
+            entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3
+            entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4
+            entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5
+            entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature
+            entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1
+            entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2
+            entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3
+            entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4
+            entity_forecast_icon_1: sensor.dark_sky_icon_1
+            entity_forecast_icon_2: sensor.dark_sky_icon_2
+            entity_forecast_icon_3: sensor.dark_sky_icon_3
+            entity_forecast_icon_4: sensor.dark_sky_icon_4
+            entity_forecast_icon_5: sensor.dark_sky_icon_5
+          # - type: custom:card-modder
+          #   style:
+          #     --paper-card-background-color: rgba(0, 0, 0, .25)
+          #   card:
+          #   - type: custom:dark-sky-weather-card
+          #     entity_sun: sun.sun
+          #     entity_daily_summary: sensor.dark_sky_daily_summary
+          #     entity_current_conditions: sensor.dark_sky_icon  
+          #     entity_humidity: sensor.dark_sky_humidity
+          #     entity_pressure: sensor.dark_sky_pressure
+          #     entity_temperature: sensor.dark_sky_temperature
+          #     entity_visibility: sensor.dark_sky_visibility
+          #     entity_wind_bearing: sensor.dark_sky_wind_bearing
+          #     entity_wind_speed: sensor.dark_sky_wind_speed
+          #     entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1
+          #     entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2
+          #     entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3
+          #     entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4
+          #     entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5
+          #     entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature
+          #     entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1
+          #     entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2
+          #     entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3
+          #     entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4
+          #     entity_forecast_icon_1: sensor.dark_sky_icon_1
+          #     entity_forecast_icon_2: sensor.dark_sky_icon_2
+          #     entity_forecast_icon_3: sensor.dark_sky_icon_3
+          #     entity_forecast_icon_4: sensor.dark_sky_icon_4
+          #     entity_forecast_icon_5: sensor.dark_sky_icon_5
+          - type: custom:windybg-card
+            url: /local/windy-animations/windy.html
+            weather: weather.dark_sky
+  - id: hallway
+    title: Hallway
+    icon: mdi:door
+    panel: true
+    cards:
+      - type: custom:layout-card
+        layout: vertical
+        column_num: 3
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                icon: mdi:lightbulb
+                name: Lights
+                entity: light.hallway
+                color_type: icon
+                color: rgb(223, 255, 97)
+                style:
+                - height: 0
+                - padding-bottom: 50%
+                - padding-top: 50%
+              - type: custom:button-card
+                icon: mdi:blank-card
+                style:
+                - height: 0
+                - padding-bottom: 50%
+                - padding-top: 50%
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                icon: mdi:blank-card
+                style:
+                - height: 0
+                - padding-bottom: 50%
+                - padding-top: 50%
+              - type: custom:button-card
+                icon: mdi:blank-card
+                style:
+                - height: 0
+                - padding-bottom: 50%
+                - padding-top: 50%
+          - type: horizontal-stack
+            cards:
+              - type: vertical-stack
+                cards:
+                  - type: custom:button-card
+                    icon: mdi:lock-question
+                  - type: custom:button-card
+                    icon: mdi:lock-question
+              - type: vertical-stack
+                cards:
+                  - type: custom:button-card
+                    icon: mdi:volume-plus
+                    action: service
+                    service:
+                      domain: media_player
+                      action: volume_up
+                      data:
+                        entity_id: media_player.hallway
+                  - type: custom:button-card
+                    icon: mdi:volume-minus
+                    action: service
+                    service:
+                      domain: media_player
+                      action: volume_down
+                      data:
+                        entity_id: media_player.daniels_bedroom
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                icon: mdi:white-balance-sunny
+                name: Flux
+                entity: switch.flux_hallway
+                color_type: icon
+                color: rgb(244, 182, 66)
+                style:
+                - height: 0
+                - padding-bottom: 50%
+                - padding-top: 50%
+              - type: custom:button-card
+                icon: mdi:blank-card
+                name: Scene
+                style:
+                - height: 0
+                - padding-bottom: 50%
+                - padding-top: 50%
+              - type: custom:button-card
+                icon: mdi:blank-card
+                name: Scene
+                style:
+                - height: 0
+                - padding-bottom: 50%
+                - padding-top: 50%
+              - type: custom:button-card
+                icon: mdi:blank-card
+                name: Scene
+                style:
+                - height: 0
+                - padding-bottom: 50%
+                - padding-top: 50%
+          - break
+          - type: useful-markdown-card
+            content: foo
+          - break
+          - type: custom:dark-sky-weather-card
+            entity_sun: sun.sun
+            entity_daily_summary: sensor.dark_sky_daily_summary
+            entity_current_conditions: sensor.dark_sky_icon  
+            entity_humidity: sensor.dark_sky_humidity
+            entity_pressure: sensor.dark_sky_pressure
+            entity_temperature: sensor.dark_sky_temperature
+            entity_visibility: sensor.dark_sky_visibility
+            entity_wind_bearing: sensor.dark_sky_wind_bearing
+            entity_wind_speed: sensor.dark_sky_wind_speed
+            entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1
+            entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2
+            entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3
+            entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4
+            entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5
+            entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature
+            entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1
+            entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2
+            entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3
+            entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4
+            entity_forecast_icon_1: sensor.dark_sky_icon_1
+            entity_forecast_icon_2: sensor.dark_sky_icon_2
+            entity_forecast_icon_3: sensor.dark_sky_icon_3
+            entity_forecast_icon_4: sensor.dark_sky_icon_4
+            entity_forecast_icon_5: sensor.dark_sky_icon_5
+          - type: iframe
+            url: /local/windy-animations/windy_small.html
+            aspect_ratio: 85%
   - id: living_room
     title: Living Room
     # icon: mdi:television

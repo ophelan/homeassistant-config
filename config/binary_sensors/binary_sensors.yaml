@@ -1,3 +1,6 @@
 - platform: mqtt
   name: kiosk_motion_pixelc
   state_topic: any/value
+- platform: mqtt
+  name: kiosk_motion_livingroom
+  state_topic: any/value

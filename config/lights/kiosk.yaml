@@ -5,3 +5,10 @@
       turn_on:
       turn_off:
       set_level:
+- platform: template
+  lights:
+    kiosk_screen_livingRoom:
+      friendly_name: Living Room Kiosk
+      turn_on:
+      turn_off:
+      set_level:
